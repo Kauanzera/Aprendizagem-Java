@@ -11,7 +11,7 @@ public class Programa {
 		Aluno tri = new Aluno();
 		
 		System.out.print("Aluno: ");
-		String nome = sc.nextLine();
+		tri.nome = sc.nextLine();
 		
 		tri.a = sc.nextInt();
 		tri.b = sc.nextInt();

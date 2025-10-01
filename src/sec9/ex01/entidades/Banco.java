@@ -4,28 +4,25 @@ public class Banco {
 	
 	private int numeroConta;
 	private String nome;
-	private double depositoInicial;
-	private double deposito;
-	private double saque;
+	private double saldo;
 	
-	// Métodos Contrutores
-	public Banco() {}
-	
+	// Métodos Contrutores	
 	public Banco(int numeroConta, String nome) {
 		this.numeroConta = numeroConta;
 		this.nome = nome;
 	}
 	
-	//Métodos Acessores
+	public Banco(int numeroConta, String nome, double depositoInicial) {
+		this.numeroConta = numeroConta;
+		this.nome = nome;
+		deposito(depositoInicial);
+	}	
 	
+	//Métodos Acessores
 	public int getNumeroConta() {
 		return numeroConta;
 	}
 	
-	public void setNumeroConta(int numeroConta) {
-		this.numeroConta = numeroConta;
-	}
-
 	public String getNome() {
 		return nome;
 	}
@@ -34,40 +31,21 @@ public class Banco {
 		this.nome = nome;
 	}
 
-	public double getDepositoInicial() {
-		return depositoInicial;
-	}
-
-	public void setDepositoInicial(double depositoInicial) {
-		this.depositoInicial = depositoInicial;
+	public double getSaldo() {
+		return saldo;
 	}
 	
-	public double getDeposito() {
-		return deposito;
-	}
-
-	public void setDeposito(double deposito) {
-		this.deposito = deposito;
-	}
-
-	public double getSaque() {
-		return saque;
-	}
-
-	public void setSaque(double saque) {
-		this.saque = saque;
-	}
-
+	//Métodos de operação
 	public void deposito(double deposito) {
-		this.deposito = getDepositoInicial() + deposito;
+		saldo += deposito;
 	}
 	
-	public void sacar(double saque) {
-		this.deposito -= (saque + 5);
+	public void saque(double saque) {
+		saldo -= (saque + 5);
 	}
 
 	public String toString() {
-		return String.format("\nDados da Conta: \nNúmero: %d, Titular: %s, Saldo: R$ %.2f\n", getNumeroConta(), getNome(), deposito);
+		return String.format("\nDados da Conta: \nNúmero: %d, Titular: %s, Saldo: R$ %.2f\n", getNumeroConta(), getNome(), saldo);
 	}
 
 }

@@ -8,35 +8,37 @@ public class Programa {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-		Banco bc = new Banco();
+		Banco bc;
 
 		System.out.print("Informe o número da sua conta: "); 
-		bc.setNumeroConta(sc.nextInt());
+		int numConta = sc.nextInt();
 		
-		sc.nextLine();
 		System.out.print("Informe seu nome: ");
-		bc.setNome(sc.nextLine());
+		sc.nextLine();
+		String nome = sc.nextLine();
 				
 		System.out.print("Deseja realizar um depósito inicial? (s/n) → ");
 		String di = sc.next();
 		
 		if (di.equals("s")) {
 			System.out.print("Insira um valor inicial: R$ ");
-			bc.setDepositoInicial(sc.nextDouble());
-			bc.setDeposito(bc.getDepositoInicial());
+			double depInicial = sc.nextDouble();
+			bc = new Banco(numConta, nome, depInicial);		//SOBRECARGA
+		} else {
+			bc = new Banco(numConta, nome);					//SOBRECARGA
 		}
 		
 		System.out.print(bc);
 		
 		System.out.print("\nEntre com o valor do depósito: → ");
-		bc.setDeposito(sc.nextDouble());
-		bc.deposito(bc.getDeposito());
+		double valDeposito = sc.nextDouble();
+		bc.deposito(valDeposito);
 		
 		System.out.print("\nDADOS ATUALIZADOS" + bc);
 		
 		System.out.print("\nEntre com o valor do saque: → ");
-		bc.setSaque(sc.nextDouble());
-		bc.sacar(bc.getSaque());
+		double valSaque = sc.nextDouble();
+		bc.saque(valSaque);
 		
 		System.out.print("\nDADOS ATUALIZADOS" + bc);
 				

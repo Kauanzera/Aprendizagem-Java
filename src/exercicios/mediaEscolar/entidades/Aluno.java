@@ -22,7 +22,7 @@ public class Aluno {
 	}
 	
 	public String toString() {
-		return String.format("\nMÉDIA FINAL: %d \n%s", calcMedia(), situacao());
+		return String.format("\nALUNO: %s \nMÉDIA FINAL: %d \n%s", nome, calcMedia(), situacao());
 	}
 
 }
